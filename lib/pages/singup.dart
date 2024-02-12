@@ -1,4 +1,6 @@
 
+import 'package:blogapp/pages/frontpage.dart';
+import 'package:blogapp/services/serivce1.dart';
 import 'package:flutter/material.dart';
 
 class singup extends StatefulWidget {
@@ -18,6 +20,7 @@ class _singupState extends State<singup> {
   TextEditingController password1=new TextEditingController();
 
   void sendvalue()
+  async
   {
     print("Name"+name1.text);
     print("Name"+age1.text);
@@ -27,6 +30,22 @@ class _singupState extends State<singup> {
     print("Name"+email1.text);
     print("Name"+password1.text);
 
+    final response= await users().sendata(
+        name1.text,
+        age1.text,
+        phonenumber1.text,
+        address1.text,
+        pincode1.text,
+        email1.text,
+        password1.text);
+    if (response["status"]=="success")
+      {
+        Navigator.push(context,MaterialPageRoute(builder: (context)=>frontpage()));
+      }
+    else
+      {
+        print("error");
+      }
   }
   @override
   Widget build(BuildContext context) {

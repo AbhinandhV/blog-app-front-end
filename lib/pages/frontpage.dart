@@ -36,7 +36,9 @@ class _frontpageState extends State<frontpage> {
             SizedBox(height: 30,),
             ElevatedButton(onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context)=>singup()));
-            }, child: Text("new user"))
+            }, child: Text("new user")),
+
+
           ],
         ),
       ),
